@@ -7,6 +7,12 @@
 		"include": ["src/tests/**/*"]
 	},
 	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"components/*": ["src/components/*"],
+			"server/*": ["src/server/*"],
+			"utils/*": ["src/utils/*"]
+		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
