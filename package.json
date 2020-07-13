@@ -3,12 +3,12 @@
 	"name": "next-boilerplate",
 	"version": "0.1.0",
 	"scripts": {
-		"build": "cross-env TZ=Europe/Prague next build && cross-env TZ=Europe/Prague tsc --project tsconfig.server.json",
+		"build": "cross-env TZ=UTC next build && cross-env TZ=UTC tsc --project tsconfig.server.json",
 		"ci": "npm run lint && npm run test && npm run build",
 		"dev": "nodemon",
 		"lint": "eslint 'src/*/**/*.{js,ts,tsx,json}' '*.{js,ts,tsx,json}' --quiet",
 		"lint:fix": "npm run lint -- --fix",
-		"start": "cross-env TZ=Europe/Prague NODE_ENV=production node dist/index.js",
+		"start": "cross-env TZ=UTC NODE_ENV=production node dist/index.js",
 		"test": "uvu -r ts-node/register src/tests"
 	},
 	"dependencies": {
