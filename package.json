@@ -3,11 +3,11 @@
 	"name": "next-boilerplate",
 	"version": "0.1.0",
 	"scripts": {
-		"build": "next build",
-		"dev": "next dev",
+		"build": "cross-env TZ=Europe/Prague next build",
+		"dev": "cross-env TZ=Europe/Prague next dev",
 		"lint": "eslint 'src/*/**/*.{js,ts,tsx,json}' '*.{js,ts,tsx,json}' --quiet",
 		"lint:fix": "npm run lint -- --fix",
-		"start": "next start",
+		"start": "cross-env TZ=Europe/Prague next start",
 		"test": "uvu -r ts-node/register src/tests",
 		"ci": "npm run lint && npm run test && npm run build"
 	},
