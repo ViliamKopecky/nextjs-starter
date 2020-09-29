@@ -8,6 +8,7 @@
 		"dev": "nodemon",
 		"lint": "eslint 'src/*/**/*.{js,ts,tsx,json}' '*.{js,ts,tsx,json}'",
 		"lint:fix": "npm run lint -- --fix",
+		"ts": "tsc --project . && tsc --project tsconfig.server.json",
 		"start": "cross-env TZ=UTC NODE_ENV=production node dist/index.js",
 		"test": "uvu -r ts-node/register src/tests"
 	},

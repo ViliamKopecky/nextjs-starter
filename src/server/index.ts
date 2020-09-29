@@ -9,8 +9,12 @@ const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
 	createServer((req, res) => {
-		const parsedUrl = parse(req.url, true)
-		handle(req, res, parsedUrl)
+		if (typeof req.url === 'string') {
+			const parsedUrl = parse(req.url, true)
+			handle(req, res, parsedUrl)
+		} else {
+			throw new Error('req.url is not a string')
+		}
 	}).listen(port)
 
 	// tslint:disable-next-line:no-console
