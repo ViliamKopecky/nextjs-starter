@@ -13,7 +13,8 @@
 		"storybook": "start-storybook --ci -p 6006 -c .storybook",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"test:coverage": "jest --coverage"
+		"test:coverage": "jest --coverage",
+		"generate:schema": "ts-node src/tasks/generate-schema.ts"
 	},
 	"dependencies": {
 		"@sentry/browser": "^5.24.2",
@@ -23,6 +24,7 @@
 		"@zeit/next-source-maps": "^0.0.4-canary.1",
 		"eslint-plugin-react": "7.21.2",
 		"eslint-plugin-react-hooks": "4.1.2",
+		"graphql-zeus": "^2.8.3",
 		"next": "9.5.3",
 		"nodemon": "^2.0.4",
 		"react": "16.13.1",
