@@ -21,6 +21,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 - Storybook
 - Jest + Enzyme
 - Sentry
+- Contember + GraphQL-Zeus
 
 ## Learn More
 
