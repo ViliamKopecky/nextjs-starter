@@ -27,6 +27,9 @@ module.exports = {
 		'react-hooks/rules-of-hooks': 'error',
 		'react/prop-types': 'off',
 		'react/react-in-jsx-scope': 'off',
-		'@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{ ignoreRestSiblings: true, argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+		],
 	},
 }
