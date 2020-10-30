@@ -17,6 +17,9 @@ const port = process.env.PORT || 3000
 		const storybookPath = fs.realpathSync(path.join(__dirname, '../../public/storybook'))
 		server.use('/storybook', express.static(storybookPath))
 
+		const wellKnownPath = fs.realpathSync(path.join(__dirname, '../../public/.well-known'))
+		server.use('/.well-known', express.static(wellKnownPath))
+
 		server.all('*', (req: Request, res: Response) => {
 			return handle(req, res)
 		})
