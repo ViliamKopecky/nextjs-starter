@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express'
 import next from 'next'
+import fs from 'fs'
+import path from 'path'
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -11,6 +13,9 @@ const port = process.env.PORT || 3000
 		await app.prepare()
 		const server = express()
 		server.set('trust proxy', true)
+
+		const storybookPath = fs.realpathSync(path.join(__dirname, '../../public/storybook'))
+		server.use('/storybook', express.static(storybookPath))
 
 		server.all('*', (req: Request, res: Response) => {
 			return handle(req, res)
