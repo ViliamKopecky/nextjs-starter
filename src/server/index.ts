@@ -1,26 +1,27 @@
-import { createServer } from 'http'
-import { parse } from 'url'
+import express, { Request, Response } from 'express'
 import next from 'next'
 
-const port = parseInt(process.env.PORT || '3000', 10)
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const port = process.env.PORT || 3000
 
-app.prepare().then(() => {
-	createServer((req, res) => {
-		if (typeof req.url === 'string') {
-			const parsedUrl = parse(req.url, true)
-			handle(req, res, parsedUrl)
-		} else {
-			throw new Error('req.url is not a string')
-		}
-	}).listen(port)
+;(async () => {
+	try {
+		await app.prepare()
+		const server = express()
+		server.set('trust proxy', true)
 
-	// tslint:disable-next-line:no-console
-	console.log(
-		`> Server listening at http://localhost:${port} as ${
-			dev ? 'development' : process.env.NODE_ENV
-		}`
-	)
-})
+		server.all('*', (req: Request, res: Response) => {
+			return handle(req, res)
+		})
+
+		server.listen(port, (err?: unknown) => {
+			if (err) throw err
+			console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`)
+		})
+	} catch (e) {
+		console.error(e)
+		process.exit(1)
+	}
+})()
