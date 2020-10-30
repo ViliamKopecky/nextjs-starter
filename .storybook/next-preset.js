@@ -35,10 +35,6 @@ module.exports = {
 			loaders: ['style-loader', 'css-loader', 'sass-loader'],
 		})
 
-		// If you are using CSS Modules, check out the setup from Justin (justincy)
-		// Many thanks to Justin for the inspiration
-		// https://gist.github.com/justincy/b8805ae2b333ac98d5a3bd9f431e8f70#file-next-preset-js
-
 		return newConfig
 	},
 }
