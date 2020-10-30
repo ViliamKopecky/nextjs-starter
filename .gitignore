@@ -13,6 +13,9 @@
 /out/
 /dist/
 
+# storybook
+/public/storybook
+
 # production
 /build
 
